@@ -1,0 +1,119 @@
+:root {
+  --bg-1: #0b1020;
+  --bg-2: #101735;
+  --bg-3: #0e1227;
+  --accent: #a78bfa;
+  --accent-2: #22d3ee;
+  --accent-3: #f472b6;
+  --text: #eef3ff;
+  --muted: #b6c3ff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  color: var(--text);
+  background: linear-gradient(120deg, var(--bg-1), var(--bg-2), var(--bg-3));
+  font-family: "Noto Sans", sans-serif;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.app {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff, var(--accent));
+  margin-right: 8px;
+}
+
+.viewport {
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  height: 100%;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.slide {
+  min-width: 100%;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.desc {
+  font-size: 1.2rem;
+  color: var(--muted);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px;
+}
+
+.btn {
+  border: 0;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.25), rgba(167, 139, 250, 0.22));
+  color: var(--text);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.dots {
+  display: flex;
+  gap: 6px;
+}
+
+.dots button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+}
+
+.dots button.active {
+  background: var(--accent-2);
+  box-shadow: 0 0 6px var(--accent-2);
+}
+
+/* Tamil font */
+.lang-ta { font-family: "Noto Sans Tamil", sans-serif; }
+
+/* Hindi font */
+.lang-hi { font-family: "Noto Sans Devanagari", sans-serif; }
