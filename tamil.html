@@ -1,49 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ta">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>பலமொழி ஸ்லைடுகள் - தமிழ்</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body class="lang-ta">
-    <div class="app">
-      <header class="topbar">
-        <div class="brand"><span class="dot"></span> Multi-Language Slides (தமிழ்)</div>
-      </header>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>பல்மொழி இணையதளம் · தமிழ் ஸ்லைட்கள்</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+<style>
+body { font-family: "Inter", system-ui, -apple-system, "Noto Sans Tamil", "Latha", "Arial Unicode MS", sans-serif; }
+</style>
+</head>
+<body>
+<!-- Animated background -->
+<ul class="bg-shapes" aria-hidden="true"></ul>
 
-      <main class="viewport">
-        <div class="slides">
-          <section class="slide">
-            <article class="card">
-              <h2 class="title">வரவேற்கிறோம்</h2>
-              <p class="desc">இது ஒரு தமிழ் ஸ்லைடு வலைத்தளம். மென்மையான அசைவுகள் மற்றும் அழகான பின்னணி!</p>
-            </article>
-          </section>
 
-          <section class="slide">
-            <article class="card">
-              <h2 class="title">அம்சங்கள்</h2>
-              <p class="desc">• மென்மையான ஸ்லைடுகள் • கண்ணாடி வடிவமைப்பு • மொபைல் நேவிகேஷன்</p>
-            </article>
-          </section>
+<header class="topbar">
+<nav class="nav">
+<a class="brand" href="./">🌐 பல்மொழி</a>
+<div class="spacer"></div>
+<a class="lang" href="index-en.html" lang="en" hreflang="en">English</a>
+<button id="reduceMotion" class="ghost" aria-pressed="false" title="Reduce Motion">Reduce Motion</button>
+</nav>
+</header>
 
-          <section class="slide">
-            <article class="card">
-              <h2 class="title">வெளியிடல்</h2>
-              <p class="desc">GitHub Pages மூலம் உங்கள் திட்டத்தை எளிதில் ஹோஸ்ட் செய்யலாம்.</p>
-            </article>
-          </section>
-        </div>
-      </main>
 
-      <footer class="controls">
-        <button id="prev" class="btn">◀ முந்தையது</button>
-        <div class="dots"></div>
-        <button id="next" class="btn">அடுத்து ▶</button>
-      </footer>
-    </div>
-
-    <script src="script.js"></script>
-  </body>
-</html>
+<main class="deck" id="deck">
+<section class="slides" id="slides" aria-live="polite">
+<!-- Slide 1 -->
+<article class="slide" data-title="வரவேற்பு">
+<div class="content">
+<h1>பல்மொழி இணையதளத்திற்கு வரவேற்கிறோம்</h1>
+<p class="
