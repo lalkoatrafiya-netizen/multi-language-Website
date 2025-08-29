@@ -1,0 +1,85 @@
+<!doctype html>
+const s = document.createElement('li');
+s.className = Math.random()>.5? 'circle' : 'square';
+s.style.setProperty('--x', Math.random()*100 + 'vw');
+s.style.setProperty('--size', (8+Math.random()*32) + 'vmin');
+s.style.setProperty('--delay', (-Math.random()*20).toFixed(2)+'s');
+s.style.setProperty('--dur', (18+Math.random()*22).toFixed(1)+'s');
+host.appendChild(s);
+}
+})();
+
+
+// Slider logic
+(function slider(){
+const slides = Array.from(document.querySelectorAll('.slide'));
+const track = document.getElementById('slides');
+const dotsHost = document.getElementById('dots');
+const prev = document.getElementById('prev');
+const next = document.getElementById('next');
+const playBtn = document.getElementById('play');
+const pauseBtn = document.getElementById('pause');
+const reduceMotion = document.getElementById('reduceMotion');
+
+
+let i = 0, timer = null;
+
+
+// Build dots
+slides.forEach((s, idx) => {
+const b = document.createElement('button');
+b.className = 'dot';
+b.setAttribute('aria-label', 'Go to slide ' + (idx+1));
+b.onclick = () => go(idx);
+dotsHost.appendChild(b);
+});
+
+
+function go(n){ i = (n+slides.length) % slides.length; update(); }
+function update(){
+track.style.setProperty('--i', i);
+dotsHost.querySelectorAll('.dot').forEach((d,idx)=> d.classList.toggle('active', idx===i));
+slides.forEach((s,idx)=> s.toggleAttribute('data-active', idx===i));
+// Update document title for accessibility
+const title = slides[i].dataset.title || ('Slide ' + (i+1));
+document.title = title + ' · Multilanguage Website';
+}
+function nextFn(){ go(i+1); }
+function prevFn(){ go(i-1); }
+function play(){ if (timer) return; timer = setInterval(nextFn, 4000); playBtn.disabled = true; pauseBtn.disabled = false; }
+function stop(){ if (!timer) return; clearInterval(timer); timer = null; playBtn.disabled = false; pauseBtn.disabled = true; }
+
+
+next.onclick = nextFn; prev.onclick = prevFn;
+playBtn.onclick = play; pauseBtn.onclick = stop;
+
+
+// Keyboard
+window.addEventListener('keydown', (e)=>{
+if (e.key === 'ArrowRight') nextFn();
+if (e.key === 'ArrowLeft') prevFn();
+if (e.key.toLowerCase() === ' ') { // space toggles
+e.preventDefault(); timer? stop(): play();
+}
+});
+
+
+// Hover to pause
+const deck = document.getElementById('deck');
+deck.addEventListener('mouseenter', stop);
+deck.addEventListener('mouseleave', play);
+
+
+// Reduce motion
+reduceMotion.addEventListener('click', ()=>{
+const on = document.body.classList.toggle('no-motion');
+reduceMotion.setAttribute('aria-pressed', String(on));
+});
+
+
+// Init
+update(); stop();
+})();
+</script>
+</body>
+</html>
