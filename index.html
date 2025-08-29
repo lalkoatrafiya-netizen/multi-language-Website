@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Multi-Language Slides (Tamil & Hindi)</title>
+  <style>
+    :root {
+      --bg-1: #0b1020;
+      --bg-2: #101735;
+      --bg-3: #0e1227;
+      --accent: #a78bfa;
+      --accent-2: #22d3ee;
+      --accent-3: #f472b6;
+      --text: #eef3ff;
+      --muted: #b6c3ff;
+    }
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background: linear-gradient(120deg, var(--bg-1), var(--bg-2), var(--bg-3));
+      font-family: "Noto Sans", sans-serif;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .app {
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      padding: 16px;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #fff, var(--accent));
+      margin-right: 8px;
+    }
+
+    .viewport {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .slides {
+      display: flex;
+      height: 100%;
+      transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .slide {
+      min-width: 100%;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+
+    .title {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .desc {
+      font-size: 1.2rem;
+      color: var(--muted);
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 12px;
+    }
+
+    .btn {
+      border: 0;
+      padding: 10px 16px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(34, 211, 238, 0.25), rgba(167, 139, 250, 0.22));
+      color: var(--text);
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .dots button {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255, 255, 255, 0.3);
+      cursor: pointer;
+    }
+
+    .dots button.active {
+      background: var(--accent-2);
+      box-shadow: 0 0 6px var(--accent-2);
+    }
+
+    /* Tamil font */
+    .lang-ta { font-family: "Noto Sans Tamil", sans-serif; }
+
+    /* Hindi font */
+    .lang-hi { font-family: "Noto Sans Devanagari", sans-serif; }
+
+    /* floating background circles */
+    .bg-shape {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      animation: float 15s infinite linear;
+      z-index: 0;
+    }
+    .bg-shape.small { width: 60px; height: 60px; top: 20%; left: 10%; }
+    .bg-shape.medium { width: 120px; height: 120px; top: 40%; left: 70%; }
+    .bg-shape.large { width: 200px; height: 200px; top: 70%; left: 30%; }
+
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-40px) rotate(180deg); }
+      100% { transform: translateY(0) rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="dot"></div> Multi-Language Slides (தமிழ் & हिन्दी)
+    </header>
+
+    <main class="viewport">
+      <!-- floating animated background -->
+      <div class="bg-shape small"></div>
+      <div class="bg-shape medium"></div>
+      <div class="bg-shape large"></div>
+
+      <div class="slides">
+        <!-- Tamil Slide -->
+        <section class="slide lang-ta">
+          <article class="card">
+            <h2 class="title">வரவேற்கிறோம்</h2>
+            <p class="desc">இது ஒரு தமிழ் ஸ்லைடு வலைத்தளம். அழகான அசைவுகள்!</p>
+          </article>
+        </section>
+
+        <section class="slide lang-ta">
+          <article class="card">
+            <h2 class="title">அம்சங்கள்</h2>
+            <p class="desc">• மென்மையான ஸ்லைடுகள் • கண்ணாடி வடிவமைப்பு • மொபைல் நேவிகேஷன்</p>
+          </article>
+        </section>
+
+        <!-- Hindi Slide -->
+        <section class="slide lang-hi">
+          <article class="card">
+            <h2 class="title">स्वागत है</h2>
+            <p class="desc">यह एक हिन्दी स्लाइड वेबसाइट है। स्मूथ ऐनिमेशन!</p>
+          </article>
+        </section>
+
+        <section class="slide lang-hi">
+          <article class="card">
+            <h2 class="title">विशेषताएँ</h2>
+            <p class="desc">• स्मूथ स्लाइड्स • ग्लास डिज़ाइन • मोबाइल नेविगेशन</p>
+          </article>
+        </section>
+      </div>
+    </main>
+
+    <footer class="controls">
+      <button id="prev" class="btn">◀ Prev</button>
+      <div class="dots"></div>
+      <button id="next" class="btn">Next ▶</button>
+    </footer>
+  </div>
+
+  <script>
+    const slides = document.querySelector(".slides");
+    const slideCount = document.querySelectorAll(".slide").length;
+    const dotsContainer = document.querySelector(".dots");
+    const prevBtn = document.getElementById("prev");
+    const nextBtn = document.getElementById("next");
+
+    let index = 0;
+
+    // Build dots
+    for (let i = 0; i < slideCount; i++) {
+      const dot = document.createElement("button");
+      dot.addEventListener("click", () => goTo(i));
+      dotsContainer.appendChild(dot);
+    }
+    update();
+
+    function goTo(i) {
+      index = Math.max(0, Math.min(i, slideCount - 1));
+      update();
+    }
+
+    function update() {
+      slides.style.transform = `translateX(-${index * 100}%)`;
+      const dots = dotsContainer.querySelectorAll("button");
+      dots.forEach((d, i) => d.classList.toggle("active", i === index));
+      prevBtn.disabled = index === 0;
+      nextBtn.disabled = index === slideCount - 1;
+    }
+
+    prevBtn.addEventListener("click", () => goTo(index - 1));
+    nextBtn.addEventListener("click", () => goTo(index + 1));
+
+    // Keyboard support
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") goTo(index + 1);
+      if (e.key === "ArrowLeft") goTo(index - 1);
+    });
+
+    // Swipe (mobile)
+    let startX = 0;
+    slides.addEventListener("touchstart", (e) => (startX = e.touches[0].clientX), { passive: true });
+    slides.addEventListener("touchend", (e) => {
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 50) {
+        dx < 0 ? goTo(index + 1) : goTo(index - 1);
+      }
+    });
+  </script>
+</body>
+</html>
